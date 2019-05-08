@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "airplane_game", "airplane_game\airplane_game.vcxproj", "{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Debug|x64.ActiveCfg = Debug|x64
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Debug|x64.Build.0 = Debug|x64
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Debug|x86.ActiveCfg = Debug|Win32
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Debug|x86.Build.0 = Debug|Win32
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Release|x64.ActiveCfg = Release|x64
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Release|x64.Build.0 = Release|x64
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Release|x86.ActiveCfg = Release|Win32
+		{D224A7EA-5F1C-49FA-ACDB-F67BC9B8ACBB}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56F8EAF9-F24A-4229-869A-0DB980654D66}
+	EndGlobalSection
+EndGlobal

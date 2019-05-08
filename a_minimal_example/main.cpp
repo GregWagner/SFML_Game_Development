@@ -1,7 +1,8 @@
 #include <SFML/Graphics.hpp>
 
-int main() {
-    sf::RenderWindow window (sf::VideoMode(640, 480), "SFM Application");
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(640, 480), "SFML Application");
 
     sf::CircleShape shape;
     shape.setRadius(40.0f);
@@ -11,11 +12,10 @@ int main() {
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::EventType::Closed) {
+            if (event.type == sf::Event::Closed) {
                 window.close();
             }
         }
-
         window.clear();
         window.draw(shape);
         window.display();

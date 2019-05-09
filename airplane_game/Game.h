@@ -1,6 +1,11 @@
 #pragma once
+#include "World.h"
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
 class Game : private sf::NonCopyable {
 public:
@@ -8,27 +13,20 @@ public:
     void run();
 
 private:
-    static const float PLAYER_SPEED;
-    static const sf::Time TIME_PER_FRAME;
-
     void processEvents();
     void update(sf::Time deltaTime);
     void render();
 
-    void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
     void updateStatistics(sf::Time elapsedTIme);
+    void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+
+    static const sf::Time TIME_PER_FRAME;
 
     sf::RenderWindow mWindow;
-    sf::Texture mTexture;
-    sf::Sprite mPlayer;
+    World mWorld;
+
     sf::Font mFont;
     sf::Text mStatisticsText {};
     sf::Time mStatisticsUpdateTime {};
-
-    std::size_t mStatisticsNumberOfFrames;
-
-    bool mIsMovingUp {};
-    bool mIsMovingDown {};
-    bool mIsMovingRight {};
-    bool mIsMovingLeft {};
+    std::size_t mStatisticsNumberOfFrames {};
 };

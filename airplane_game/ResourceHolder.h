@@ -1,6 +1,10 @@
 #pragma once
 
+#include <cassert>
 #include <map>
+#include <memory>
+#include <stdexcept>
+#include <string>
 
 template <typename Resource, typename Identifier>
 class ResourceHolder {
@@ -14,36 +18,38 @@ public:
     const Resource& get(Identifier id) const;
 
 private:
-    std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
-
     void insertResource(Identifier id, std::unique_ptr<Resource> resource);
+
+    std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
 };
 
 template <typename Resource, typename Identifier>
-inline void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string& filename)
+void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string& filename)
 {
-    std::unique_ptr<Resource> resource();
+    // create and load resource
+    std::unique_ptr<Resource> resource(new Resource());
     if (!resource->loadFromFile(filename)) {
-        throw std::runtime_error("ResourceHolder::load - Filed to load "
-            + filename);
+        throw std::runtime_error("ResourceHolder::load - Filed to load " + filename);
     }
+    // if loading successful, insert resource to map
     insertResource(id, std::move(resource));
 }
 
 template <typename Resource, typename Identifier>
 template <typename Parameter>
-inline void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string& filename, const Parameter& secondParam)
+void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string& filename,
+    const Parameter& secondParam)
 {
-    std::unique_ptr<Resource> resource();
+    std::unique_ptr<Resource> resource(new Resource());
     if (!resource->loadFromFile(filename, secondParam)) {
-        throw std::runtime_error("ResourceHolder::load - Filed to load "
-            + filename);
+        throw std::runtime_error("ResourceHolder::load - Filed to load " + filename);
     }
+    // if loading successful, insert resource to map
     insertResource(id, std::move(resource));
 }
 
 template <typename Resource, typename Identifier>
-inline Resource& ResourceHolder<Resource, Identifier>::get(Identifier id)
+Resource& ResourceHolder<Resource, Identifier>::get(Identifier id)
 {
     auto found = mResourceMap.find(id);
     assert(found != mResourceMap.end());

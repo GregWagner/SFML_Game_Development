@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "ResourceHolder.h"
 #include <iostream>
 
 const float Game::PLAYER_SPEED { 100.0f };
